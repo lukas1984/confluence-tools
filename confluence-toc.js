@@ -124,17 +124,16 @@
 			} else if ($(this).is('h3')) {
 				curr3 = index;
 				
-				var par = curr2 != '' ? curr2 : curr1 != '' ? '#toc-list-' + curr1 : '#toc-content';
-				$('#toc-list-' + par).append('<li><a href="javascript:tocGoto(' + index + ')">' + title + '</a><ol id="toc-list-' + index + '"></ol></li>');
+				var par = curr2 != '' ? '#toc-list-' + curr2 : curr1 != '' ? '#toc-list-' + curr1 : '#toc-content';
+				$(par).append('<li><a href="javascript:tocGoto(' + index + ')">' + title + '</a><ol id="toc-list-' + index + '"></ol></li>');
 			} else if ($(this).is('strong')) {
 				
 				if ($(this).closest('table').length != 0 || title != $(this).parent().text()) {
 					return;
 				}
 					
-				var par = curr3 != '' ? curr3 : curr2 != '' ? curr2 : curr1 != '' ? '#toc-list-' + curr1 : '#toc-content';
-				
-				$('#toc-list-' + par).append('<li><a href="javascript:tocGoto(' + index + ')">' + title + '</a></li>');
+				var par = curr3 != '' ? '#toc-list-' + curr3 : curr2 != '' ? '#toc-list-' + curr2 : curr1 != '' ? '#toc-list-' + curr1 : '#toc-content';
+				$(par).append('<li><a href="javascript:tocGoto(' + index + ')">' + title + '</a></li>');
 			}
 			
 			$(this).data('toc-id', index).addClass('toc').addClass('toc-' + index);
