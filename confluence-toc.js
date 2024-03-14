@@ -119,11 +119,12 @@
 				curr2 = index;
 				curr3 = '';
 				
-				$('#toc-list-' + curr1).append('<li><a href="javascript:tocGoto(' + index + ')">' + title + '</a><ol id="toc-list-' + index + '"></ol></li>');
+				var par = curr1 != '' ? '#toc-list-' + curr1 : '#toc-content';
+				$(par).append('<li><a href="javascript:tocGoto(' + index + ')">' + title + '</a><ol id="toc-list-' + index + '"></ol></li>');
 			} else if ($(this).is('h3')) {
 				curr3 = index;
 				
-				var par = curr2 != '' ? curr2 : curr1;
+				var par = curr2 != '' ? curr2 : curr1 != '' ? '#toc-list-' + curr1 : '#toc-content';
 				$('#toc-list-' + par).append('<li><a href="javascript:tocGoto(' + index + ')">' + title + '</a><ol id="toc-list-' + index + '"></ol></li>');
 			} else if ($(this).is('strong')) {
 				
@@ -131,7 +132,7 @@
 					return;
 				}
 					
-				var par = curr3 != '' ? curr3 : curr2 != '' ? curr2 : curr1;
+				var par = curr3 != '' ? curr3 : curr2 != '' ? curr2 : curr1 != '' ? '#toc-list-' + curr1 : '#toc-content';
 				
 				$('#toc-list-' + par).append('<li><a href="javascript:tocGoto(' + index + ')">' + title + '</a></li>');
 			}
