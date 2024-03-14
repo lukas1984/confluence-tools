@@ -48,7 +48,7 @@
 		}
 		
 		for (var i = 0; i < savedBookmarks.length; i++) {
-			if (savedBookmarks[i].url = window.location.href) {
+			if (savedBookmarks[i].url == window.location.href) {
 				savedBookmarks[i].list = list;
 			}
 		}
@@ -61,7 +61,7 @@
 		
 		if (savedBookmarks != null) {
 			for (var i = 0; i < savedBookmarks.length; i++) {
-				if (savedBookmarks[i].url = window.location.href) {
+				if (savedBookmarks[i].url == window.location.href) {
 					
 					var pageBookmarks = savedBookmarks[i].list;
 					
