@@ -152,7 +152,8 @@
 		})
 	};
 
-	generateToc();
-	loadBookmarks();
-
+	if ($('#com-atlassian-confluence').length > 0) {
+		generateToc();
+		loadBookmarks();
+	}
 })();
